@@ -1,0 +1,18 @@
+{
+    "field_validation_msg_empty": "Pole jest wymagane",
+    "field_validation_msg_invalid_email": "Niepoprawny email",
+    "field_validation_msg_invalid_password": "Niepoprawne hasło",
+    "field_name_email": "Email",
+    "field_name_password": "Hasło",
+    "field_name_user_name": "Imie",
+    "sign_up": "Zarejestruj się",
+    "sign_in": "Zaloguj się",
+    "create_account": "Stwórz Konto",
+    "sing_in_text_button_msg": "Nie masz jeszcze konta? Załóz je.",
+    "sing_up_text_button_msg": "Masz juz konto? Zaloguj się.",
+    "home_page_signed_in": "Zalogowano",
+    "home_page_user_name": "Imię: {userName}",
+    "home_page_user_email": "Email: {userEmail}",
+    "logout": "Wyloguj się",
+    "snack_bar_error_msg": "Wystąpił błąd. Spróbuj ponownie."
+}

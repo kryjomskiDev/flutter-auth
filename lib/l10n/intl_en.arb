@@ -1,0 +1,18 @@
+{
+    "field_validation_msg_empty": "Field is required",
+    "field_validation_msg_invalid_email": "Invalid email",
+    "field_validation_msg_invalid_password": "Invalid Password",
+    "field_name_email": "Email",
+    "field_name_password": "Password",
+    "field_name_user_name": "Name",
+    "sign_up": "Sign Up",
+    "sign_in": "Sign In",
+    "create_account": "Create Account",
+    "sing_in_text_button_msg": "Don't have an account? Create one.",
+    "sing_up_text_button_msg": "Already have an account? Login instead.",
+    "home_page_signed_in": "Signed In",
+    "home_page_user_name": "Name: {userName}",
+    "home_page_user_email": "Email: {userEmail}",
+    "logout": "Logout",
+    "snack_bar_error_msg": "An error occured. Please try again."
+}
