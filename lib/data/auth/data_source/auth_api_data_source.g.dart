@@ -16,7 +16,7 @@ class _AuthApiDataSource implements AuthApiDataSource {
   String? baseUrl;
 
   @override
-  Future<void> signUp(apiKey, userCredentials) async {
+  Future<void> signUp(userCredentials) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -24,14 +24,14 @@ class _AuthApiDataSource implements AuthApiDataSource {
     _data.addAll(userCredentials.toJson());
     await _dio.fetch<void>(_setStreamType<void>(
         Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, 'accounts:signUp?key=${apiKey}',
+            .compose(_dio.options, 'accounts:signUp',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<AuthUserDto> loginWithEmail(apiKey, userCredentials) async {
+  Future<AuthUserDto> loginWithEmail(userCredentials) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -40,8 +40,7 @@ class _AuthApiDataSource implements AuthApiDataSource {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<AuthUserDto>(
             Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(
-                    _dio.options, 'accounts:signInWithPassword?key=${apiKey}',
+                .compose(_dio.options, 'accounts:signInWithPassword',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = AuthUserDto.fromJson(_result.data!);
@@ -49,7 +48,7 @@ class _AuthApiDataSource implements AuthApiDataSource {
   }
 
   @override
-  Future<void> setUserName(apiKey, userProfileCredentialsDto) async {
+  Future<void> setUserName(userProfileCredentialsDto) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -57,14 +56,14 @@ class _AuthApiDataSource implements AuthApiDataSource {
     _data.addAll(userProfileCredentialsDto.toJson());
     await _dio.fetch<void>(_setStreamType<void>(
         Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, 'accounts:update?key=${apiKey}',
+            .compose(_dio.options, 'accounts:update',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<UserDataListDto> getUserData(apiKey, userIdTokenDto) async {
+  Future<UserDataListDto> getUserData(userIdTokenDto) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -73,7 +72,7 @@ class _AuthApiDataSource implements AuthApiDataSource {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<UserDataListDto>(
             Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'accounts:lookup?key=${apiKey}',
+                .compose(_dio.options, 'accounts:lookup',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = UserDataListDto.fromJson(_result.data!);

@@ -19,7 +19,6 @@ const omitPhoto = 'PHOTO_URL';
 @LazySingleton(as: AuthService)
 class AuthServiceImpl implements AuthService {
   final AuthApiDataSource _authApiDataSource;
-  final ApiUrlProvider _apiUrlProvider;
   final AuthUserDtoToAuthUserMapper _authUserDtoToAuthUserMapper;
   final TokenStore _store;
   final UserDataListDtoToUserDataMapper _dataListDtoToUserDataMapper;
@@ -29,7 +28,6 @@ class AuthServiceImpl implements AuthService {
 
   AuthServiceImpl(
     this._authApiDataSource,
-    this._apiUrlProvider,
     this._authUserDtoToAuthUserMapper,
     this._store,
     this._dataListDtoToUserDataMapper,
@@ -38,7 +36,6 @@ class AuthServiceImpl implements AuthService {
   @override
   Future<AuthUser> signInWithEmailAndPassword(String email, String password) async {
     final authUserDto = await _authApiDataSource.loginWithEmail(
-      _apiUrlProvider.apiKey(),
       AuthUserCredentialsDto(email, password, true),
     );
     await _store.saveToken(authUserDto.idToken);
@@ -53,26 +50,21 @@ class AuthServiceImpl implements AuthService {
     String name,
   ) async {
     final userCredentials = AuthUserCredentialsDto(email, password, true);
-    final apiKey = _apiUrlProvider.apiKey();
 
     await _authApiDataSource.signUp(
-      apiKey,
       userCredentials,
     );
 
     final authUserDto = await _authApiDataSource.loginWithEmail(
-      apiKey,
       userCredentials,
     );
 
-    await _authApiDataSource.setUserName(
-        apiKey,
-        UserProfileCredentialsDto(
-          authUserDto.idToken,
-          const [omitPhoto],
-          name,
-          false,
-        ));
+    await _authApiDataSource.setUserName(UserProfileCredentialsDto(
+      authUserDto.idToken,
+      const [omitPhoto],
+      name,
+      false,
+    ));
 
     await _store.saveToken(authUserDto.idToken);
     await _store.saveRefreshToken(authUserDto.refreshToken);
@@ -84,8 +76,6 @@ class AuthServiceImpl implements AuthService {
 
   @override
   Future<UserData> getUserData() async {
-    final apiKey = _apiUrlProvider.apiKey();
-
     final token = await _store.getTokenOrNull();
 
     if (token == null) {
@@ -93,7 +83,6 @@ class AuthServiceImpl implements AuthService {
     }
 
     return _dataListDtoToUserDataMapper(await _authApiDataSource.getUserData(
-      apiKey,
       UserIdTokenDto(token),
     ));
   }

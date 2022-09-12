@@ -5,13 +5,12 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i7;
 
-import 'package:flutter_auth/data/api_url_provider.dart' as _i11;
 import 'package:flutter_auth/data/auth/data_source/auth_api_data_source.dart'
     as _i6;
 import 'package:flutter_auth/data/auth/mapper/auth_user_dto_to_auth_user_mapper.dart'
-    as _i12;
+    as _i11;
 import 'package:flutter_auth/data/auth/mapper/user_data_list_dto_to_user_data_mapper.dart'
-    as _i14;
+    as _i13;
 import 'package:flutter_auth/data/auth/model/auth_user_credentials_dto.dart'
     as _i8;
 import 'package:flutter_auth/data/auth/model/auth_user_dto.dart' as _i2;
@@ -21,7 +20,7 @@ import 'package:flutter_auth/data/auth/model/user_profile_credentials_dto.dart'
     as _i9;
 import 'package:flutter_auth/domain/auth/model/auth_user.dart' as _i4;
 import 'package:flutter_auth/domain/auth/model/user_data.dart' as _i5;
-import 'package:flutter_auth/domain/auth/store/token_store.dart' as _i13;
+import 'package:flutter_auth/domain/auth/store/token_store.dart' as _i12;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -51,62 +50,37 @@ class MockAuthApiDataSource extends _i1.Mock implements _i6.AuthApiDataSource {
   }
 
   @override
-  _i7.Future<void> signUp(
-          String? apiKey, _i8.AuthUserCredentialsDto? userCredentials) =>
-      (super.noSuchMethod(Invocation.method(#signUp, [apiKey, userCredentials]),
+  _i7.Future<void> signUp(_i8.AuthUserCredentialsDto? userCredentials) =>
+      (super.noSuchMethod(Invocation.method(#signUp, [userCredentials]),
           returnValue: Future<void>.value(),
           returnValueForMissingStub: Future<void>.value()) as _i7.Future<void>);
   @override
   _i7.Future<_i2.AuthUserDto> loginWithEmail(
-          String? apiKey, _i8.AuthUserCredentialsDto? userCredentials) =>
-      (super.noSuchMethod(
-              Invocation.method(#loginWithEmail, [apiKey, userCredentials]),
+          _i8.AuthUserCredentialsDto? userCredentials) =>
+      (super.noSuchMethod(Invocation.method(#loginWithEmail, [userCredentials]),
               returnValue: Future<_i2.AuthUserDto>.value(_FakeAuthUserDto_0()))
           as _i7.Future<_i2.AuthUserDto>);
   @override
-  _i7.Future<void> setUserName(String? apiKey,
+  _i7.Future<void> setUserName(
           _i9.UserProfileCredentialsDto? userProfileCredentialsDto) =>
       (super.noSuchMethod(
-          Invocation.method(#setUserName, [apiKey, userProfileCredentialsDto]),
+          Invocation.method(#setUserName, [userProfileCredentialsDto]),
           returnValue: Future<void>.value(),
           returnValueForMissingStub: Future<void>.value()) as _i7.Future<void>);
   @override
   _i7.Future<_i3.UserDataListDto> getUserData(
-          String? apiKey, _i10.UserIdTokenDto? userIdTokenDto) =>
-      (super.noSuchMethod(
-              Invocation.method(#getUserData, [apiKey, userIdTokenDto]),
+          _i10.UserIdTokenDto? userIdTokenDto) =>
+      (super.noSuchMethod(Invocation.method(#getUserData, [userIdTokenDto]),
               returnValue:
                   Future<_i3.UserDataListDto>.value(_FakeUserDataListDto_1()))
           as _i7.Future<_i3.UserDataListDto>);
-}
-
-/// A class which mocks [ApiUrlProvider].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockApiUrlProvider extends _i1.Mock implements _i11.ApiUrlProvider {
-  MockApiUrlProvider() {
-    _i1.throwOnMissingStub(this);
-  }
-
-  @override
-  String getApiUrl() =>
-      (super.noSuchMethod(Invocation.method(#getApiUrl, []), returnValue: '')
-          as String);
-  @override
-  String apiKey() =>
-      (super.noSuchMethod(Invocation.method(#apiKey, []), returnValue: '')
-          as String);
-  @override
-  String getRefreshTokenUrl() =>
-      (super.noSuchMethod(Invocation.method(#getRefreshTokenUrl, []),
-          returnValue: '') as String);
 }
 
 /// A class which mocks [AuthUserDtoToAuthUserMapper].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthUserDtoToAuthUserMapper extends _i1.Mock
-    implements _i12.AuthUserDtoToAuthUserMapper {
+    implements _i11.AuthUserDtoToAuthUserMapper {
   MockAuthUserDtoToAuthUserMapper() {
     _i1.throwOnMissingStub(this);
   }
@@ -120,7 +94,7 @@ class MockAuthUserDtoToAuthUserMapper extends _i1.Mock
 /// A class which mocks [TokenStore].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockTokenStore extends _i1.Mock implements _i13.TokenStore {
+class MockTokenStore extends _i1.Mock implements _i12.TokenStore {
   MockTokenStore() {
     _i1.throwOnMissingStub(this);
   }
@@ -158,7 +132,7 @@ class MockTokenStore extends _i1.Mock implements _i13.TokenStore {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockUserDataListDtoToUserDataMapper extends _i1.Mock
-    implements _i14.UserDataListDtoToUserDataMapper {
+    implements _i13.UserDataListDtoToUserDataMapper {
   MockUserDataListDtoToUserDataMapper() {
     _i1.throwOnMissingStub(this);
   }

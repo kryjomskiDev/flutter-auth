@@ -7,19 +7,28 @@
         {
             "name": "flutter_auth",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "args": [
+                "--dart-define=API_KEY=AIzaSyAjHZHcwJ8B6b7Q_gyW4tmJAWk0Yeo0wg8"
+            ]
         },
         {
             "name": "flutter_auth (profile mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "profile",
+            "args": [
+                "--dart-define=API_KEY=AIzaSyAjHZHcwJ8B6b7Q_gyW4tmJAWk0Yeo0wg8"
+            ]
         },
         {
             "name": "flutter_auth (release mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "release",
+            "args": [
+                "--dart-define=API_KEY=AIzaSyAjHZHcwJ8B6b7Q_gyW4tmJAWk0Yeo0wg8"
+            ]
         }
     ]
 }

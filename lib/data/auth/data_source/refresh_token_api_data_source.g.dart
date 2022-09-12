@@ -25,7 +25,7 @@ class _RefreshTokenApiDataSource implements RefreshTokenApiDataSource {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<RefreshTokenAuthUserDto>(
             Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'v1/token?key=${apiKey}',
+                .compose(_dio.options, 'v1/token',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RefreshTokenAuthUserDto.fromJson(_result.data!);

@@ -18,25 +18,21 @@ abstract class AuthApiDataSource {
 
   @POST(NetworkingEndpoints.signUpWithEmailAndPassword)
   Future<void> signUp(
-    @Path('key') String apiKey,
     @Body() AuthUserCredentialsDto userCredentials,
   );
 
   @POST(NetworkingEndpoints.signInWithEmailAndPassword)
   Future<AuthUserDto> loginWithEmail(
-    @Path('key') String apiKey,
     @Body() AuthUserCredentialsDto userCredentials,
   );
 
   @POST(NetworkingEndpoints.setUserName)
   Future<void> setUserName(
-    @Path('key') String apiKey,
     @Body() UserProfileCredentialsDto userProfileCredentialsDto,
   );
 
   @POST(NetworkingEndpoints.getUserData)
   Future<UserDataListDto> getUserData(
-    @Path('key') String apiKey,
     @Body() UserIdTokenDto userIdTokenDto,
   );
 }

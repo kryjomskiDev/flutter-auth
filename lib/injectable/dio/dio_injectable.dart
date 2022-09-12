@@ -1,3 +1,4 @@
+import 'package:flutter_auth/data/interceptors/auth_interceptor.dart';
 import 'package:flutter_auth/data/interceptors/refresh_token_interceptor.dart';
 import 'package:flutter_auth/domain/auth/service/auth_service.dart';
 import 'package:flutter_auth/domain/auth/service/refresh_token_service.dart';
@@ -30,5 +31,6 @@ void registerInterceptors() {
       getIt<AuthService>(),
       getIt<RefreshTokenService>(),
     ),
+    AuthInterceptor(),
   ]);
 }

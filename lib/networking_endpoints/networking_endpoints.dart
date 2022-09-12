@@ -1,12 +1,12 @@
 class NetworkingEndpoints {
-  static const signUpWithEmailAndPassword = 'accounts:signUp?key={key}';
-  static const signInWithEmailAndPassword = 'accounts:signInWithPassword?key={key}';
-  static const setUserName = 'accounts:update?key={key}';
-  static const getUserData = 'accounts:lookup?key={key}';
+  static const signUpWithEmailAndPassword = 'accounts:signUp';
+  static const signInWithEmailAndPassword = 'accounts:signInWithPassword';
+  static const setUserName = 'accounts:update';
+  static const getUserData = 'accounts:lookup';
 
   //refresh token
 
-  static const refreshToken = 'v1/token?key={key}';
+  static const refreshToken = 'v1/token';
 
   NetworkingEndpoints._();
 }

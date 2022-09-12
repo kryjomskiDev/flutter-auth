@@ -73,7 +73,6 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i12.AuthApiDataSource(get<_i5.Dio>()));
   gh.lazySingleton<_i13.AuthService>(() => _i14.AuthServiceImpl(
       get<_i12.AuthApiDataSource>(),
-      get<_i3.ApiUrlProvider>(),
       get<_i4.AuthUserDtoToAuthUserMapper>(),
       get<_i8.TokenStore>(),
       get<_i10.UserDataListDtoToUserDataMapper>()));
